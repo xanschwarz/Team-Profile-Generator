@@ -29,7 +29,6 @@ const team = [];
 
 const managerInfo = () => {
     return inquirer
-    // team manager’s name, employee ID, email address, and office number
     .prompt ([
         {
             type: 'input',
@@ -54,8 +53,30 @@ const managerInfo = () => {
     ])
     .then((data) => {
         team.push(data);
-        console.log(team);
     })
-}
+};
 
-managerInfo();
+
+const additionalEmployeeAsk = () => {
+    return inquirer
+    .prompt ([
+        {
+            type: 'list',
+            name: 'addQuery',
+            message: 'Would you like to add additional team members?',
+            choices: ['Add an engineer', 'Add an intern', 'All team members added, finish building my team']
+        },
+    ])
+    .then((response) => {
+        if (response.addQuery == 'Add an engineer') {
+            // Call function to add an engineer.
+        }
+        else if (response.addQuery == 'Add an intern') {
+            // Call function to add an intern
+        }
+        else {
+            console.log('Team complete! Generating team page.')
+            // Call function to write the team page HTML
+        }
+    })
+};
