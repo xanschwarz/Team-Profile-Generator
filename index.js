@@ -16,3 +16,46 @@ or an intern or to finish building the team.
 8. Selecting "Finish building my team" exits the application, and the HTML is generated.
 
 ------------------------------------------------------------------------------------------------------------------------------------------ */
+
+const fs = require('fs');
+const inquirer = require('inquirer');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
+const team = [];
+
+// Empty array that input will go in as one object per employee
+// Prompt to ask for manager info (does this need to be in function?), ending with asking for more input, intern calls intern function, engineer calls engineer function, adds to global array
+
+const managerInfo = () => {
+    return inquirer
+    // team manager’s name, employee ID, email address, and office number
+    .prompt ([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Please enter the team manager's name."
+        },
+        {
+            type: 'input',
+            name: 'ID',
+            message: "Please enter the team manager's employee ID number."
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Please enter the team manager's email address."
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: "Please enter the team manager's office number."
+        }
+    ])
+    .then((data) => {
+        team.push(data);
+        console.log(team);
+    })
+}
+
+managerInfo();
