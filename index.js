@@ -27,6 +27,33 @@ const team = [];
 // Empty array that input will go in as one object per employee
 // Prompt to ask for manager info (does this need to be in function?), ending with asking for more input, intern calls intern function, engineer calls engineer function, adds to global array
 
+const additionalEmployeeAsk = () => {
+    return inquirer
+    .prompt ([
+        {
+            type: 'list',
+            name: 'addQuery',
+            message: 'Would you like to add additional team members?',
+            choices: ['Add an engineer', 'Add an intern', 'All team members added, finish building my team']
+        },
+    ])
+    .then((response) => {
+        if (response.addQuery == 'Add an engineer') {
+            // Call function to add an engineer.
+            engineerInfo();
+        }
+        else if (response.addQuery == 'Add an intern') {
+            // Call function to add an intern
+            internInfo();
+        }
+        else {
+            console.log('Team complete! Generating team page.')
+            // Call function to write the team page HTML
+            console.log(team);
+        }
+    })
+};
+
 const managerInfo = () => {
     return inquirer
     .prompt ([
@@ -53,30 +80,73 @@ const managerInfo = () => {
     ])
     .then((data) => {
         team.push(data);
+        additionalEmployeeAsk();
     })
 };
 
-
-const additionalEmployeeAsk = () => {
+const engineerInfo = () => {
     return inquirer
     .prompt ([
         {
-            type: 'list',
-            name: 'addQuery',
-            message: 'Would you like to add additional team members?',
-            choices: ['Add an engineer', 'Add an intern', 'All team members added, finish building my team']
+            type: 'input',
+            name: 'name',
+            message: "Please enter the engineer's name."
         },
+        {
+            type: 'input',
+            name: 'ID',
+            message: "Please enter the engineer's employee ID number."
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Please enter the engineer's email address."
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: "Please enter the engineer's github username."
+        }
     ])
-    .then((response) => {
-        if (response.addQuery == 'Add an engineer') {
-            // Call function to add an engineer.
-        }
-        else if (response.addQuery == 'Add an intern') {
-            // Call function to add an intern
-        }
-        else {
-            console.log('Team complete! Generating team page.')
-            // Call function to write the team page HTML
-        }
+    .then((data) => {
+        team.push(data);
+        additionalEmployeeAsk();
     })
 };
+
+const internInfo = () => {
+    return inquirer
+    // name, id, email, school
+    .prompt ([
+        {
+            type: 'input',
+            name: 'name',
+            message: "Please enter the intern's name."
+        },
+        {
+            type: 'input',
+            name: 'ID',
+            message: "Please enter the intern's employee ID number."
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: "Please enter the intern's email address."
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: "Please enter the intern's school name."
+        }
+    ])
+    .then((data) => {
+        team.push(data);
+        additionalEmployeeAsk();
+    })
+};
+
+function init() {
+    managerInfo();
+}
+
+init();
