@@ -23,9 +23,7 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const team = [];
-
-// Empty array that input will go in as one object per employee
-// Prompt to ask for manager info (does this need to be in function?), ending with asking for more input, intern calls intern function, engineer calls engineer function, adds to global array
+const generateHTML = require("./src/generateHTML.js")
 
 const additionalEmployeeAsk = () => {
     return inquirer
@@ -50,6 +48,7 @@ const additionalEmployeeAsk = () => {
             console.log('Team complete! Generating team page.')
             // Call function to write the team page HTML
             console.log(team);
+            console.log(generateHTML())
         }
     })
 };
