@@ -23,7 +23,7 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const team = [];
-const generateHTML = require("./src/generateHTML.js")
+const generateTeamHTML = require("./src/generateHTML.js")
 
 const additionalEmployeeAsk = () => {
     return inquirer
@@ -47,8 +47,15 @@ const additionalEmployeeAsk = () => {
         else {
             console.log('Team complete! Generating team page.')
             // Call function to write the team page HTML
-            console.log(team);
-            console.log(generateHTML())
+            // console.log(generateTeamHTML(team))
+            fs.writeFile('./dist/index.html', generateTeamHTML(team), (err) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                } else {
+                    console.log('Team page created! Please see index.html in the dist folder.');
+                }
+            });
         }
     })
 };
