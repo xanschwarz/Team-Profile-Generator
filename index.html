@@ -1,79 +1,108 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="./style.css">
-        <title>Team Profile</title>
-    </head>
-    <body>
-        <header class='container-fluid text-center text-white py-3'>
-            <h1>
-                Team Profile
-            </h1>
-        </header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking stylesheets. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Team Profile</title>
+</head>
+<body class="bg-lighter">
+    <header class='container-fluid text-center text-white py-3'>
+        <h1>
+            Team Profile
+        </h1>
+    </header>
 
-        <section class='container-fluid'>
-            <div class='row justify-content-center'>
-                
-            <div class="card m-2" style="width: 18rem;">
-                <h2 class='text-center text-white bg-dark'>Manager</h2>
-                <div class="card-body">
-                <p class="card-text">Name: John Doe</p>
-                <p class="card-text">ID: 1</p>
-                <p class="card-text">Email: <a href="mailto: xanschwarz@gmail.com">xanschwarz@gmail.com</a></p>
-                <p class="card-text">Office Number: 1</p>
-                </div>
+    <!-- The main section contains the team information cards. Manager will appear first, followed by remaining team members in the order they were added. -->
+    <main class='container-fluid'>
+        <div class='row justify-content-center'>
+            
+            <!-- This is the manager card. Information is displayed as provided. -->
+            <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
+                <h2 class='text-center text-white pt-1'>Leto Atreides 1</h2>
+                <h3 class='text-center text-white pb-1'><i class="fas fa-user-tie pr-2"></i>Team Manager</h3>
+                <ul class="list-group list-group-flush bg-white">
+                    <li class="list-group-item">ID: 1</li>
+                    <!-- Clicking on the email address will bring up a new email in the default program with a pre-populated "To" field. -->
+                    <li class="list-group-item">Email: <a href="mailto: leto1@dune.com">leto1@dune.com</a></li>
+                    <li class="list-group-item">Office Number: 100</li>
+                </ul>
             </div>
         
-            <div class="card m-2" style="width: 18rem;">
-                <h2 class='text-center text-white bg-dark'>Engineer</h2>
-                <div class="card-body">
-                <p class="card-text">Name: First Engineer</p>
-                <p class="card-text">ID: 2</p>
-                <p class="card-text">Email: <a href="mailto: xanschwarz@gmail.com">xanschwarz@gmail.com</a></p>
-                <p class="card-text">Github: <a href="https://github.com/xanschwarz/" target="_blank">xanschwarz</a></p>
-                </div>
+            <!-- This is an engineer card. Information is displayed as provided. -->
+            <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
+                <h2 class='text-center text-white pt-1'>Jessica Atreides</h2>
+                <h3 class='text-center text-white pb-1'><i class="fas fa-laptop-code pr-2"></i>Engineer</h3>
+                <ul class="list-group list-group-flush bg-white">
+                    <li class="list-group-item">ID: 2</li>
+                    <!-- Clicking on the email address will bring up a new email in the default program with a pre-populated "To" field. -->
+                    <li class="list-group-item">Email: <a href="mailto: jessica@dune.com">jessica@dune.com</a></li>
+                    <!-- Clicking on the GitHub username will open their GitHub page in a new tab, provided a valid username was entered. -->
+                    <li class="list-group-item">Github: <a href="https://github.com/xanschwarz/" target="_blank">xanschwarz</a></li>
+                </ul>
             </div>
         
-            <div class="card m-2" style="width: 18rem;">
-                <h2 class='text-center text-white bg-dark'>Engineer</h2>
-                <div class="card-body">
-                <p class="card-text">Name: Second Engineer</p>
-                <p class="card-text">ID: 3</p>
-                <p class="card-text">Email: <a href="mailto: xanschwarz@gmail.com">xanschwarz@gmail.com</a></p>
-                <p class="card-text">Github: <a href="https://github.com/xanschwarz/" target="_blank">xanschwarz</a></p>
-                </div>
+            <!-- This is an engineer card. Information is displayed as provided. -->
+            <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
+                <h2 class='text-center text-white pt-1'>Paul Atreides</h2>
+                <h3 class='text-center text-white pb-1'><i class="fas fa-laptop-code pr-2"></i>Engineer</h3>
+                <ul class="list-group list-group-flush bg-white">
+                    <li class="list-group-item">ID: 3</li>
+                    <!-- Clicking on the email address will bring up a new email in the default program with a pre-populated "To" field. -->
+                    <li class="list-group-item">Email: <a href="mailto: paul@dune.com">paul@dune.com</a></li>
+                    <!-- Clicking on the GitHub username will open their GitHub page in a new tab, provided a valid username was entered. -->
+                    <li class="list-group-item">Github: <a href="https://github.com/xanschwarz/" target="_blank">xanschwarz</a></li>
+                </ul>
             </div>
         
-            <div class="card m-2" style="width: 18rem;">
-                <h2 class='text-center text-white bg-dark'>Intern</h2>
-                <div class="card-body">
-                <p class="card-text">Name: First Intern</p>
-                <p class="card-text">ID: 4</p>
-                <p class="card-text">Email: <a href="mailto: xanschwarz@gmail.com">xanschwarz@gmail.com</a></p>
-                <p class="card-text">School: Intern University</p>
-                </div>
+            <!-- This is an engineer card. Information is displayed as provided. -->
+            <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
+                <h2 class='text-center text-white pt-1'>Alia Atreides</h2>
+                <h3 class='text-center text-white pb-1'><i class="fas fa-laptop-code pr-2"></i>Engineer</h3>
+                <ul class="list-group list-group-flush bg-white">
+                    <li class="list-group-item">ID: 4</li>
+                    <!-- Clicking on the email address will bring up a new email in the default program with a pre-populated "To" field. -->
+                    <li class="list-group-item">Email: <a href="mailto: alia@dune.com">alia@dune.com</a></li>
+                    <!-- Clicking on the GitHub username will open their GitHub page in a new tab, provided a valid username was entered. -->
+                    <li class="list-group-item">Github: <a href="https://github.com/xanschwarz/" target="_blank">xanschwarz</a></li>
+                </ul>
             </div>
         
-            <div class="card m-2" style="width: 18rem;">
-                <h2 class='text-center text-white bg-dark'>Intern</h2>
-                <div class="card-body">
-                <p class="card-text">Name: Second Intern</p>
-                <p class="card-text">ID: 5</p>
-                <p class="card-text">Email: <a href="mailto: xanschwarz@gmail.com">xanschwarz@gmail.com</a></p>
-                <p class="card-text">School: Intern University</p>
-                </div>
+            <!-- This is an intern card. Information is displayed as provided. -->
+            <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
+                <h2 class='text-center text-white pt-1'>Leto Atreides 2</h2>
+                <h3 class='text-center text-white pb-1'><i class="fas fa-user-graduate pr-2"></i>Intern</h3>
+                <ul class="list-group list-group-flush bg-white">
+                    <li class="list-group-item">ID: 5</li>
+                    <!-- Clicking on the email address will bring up a new email in the default program with a pre-populated "To" field. -->
+                    <li class="list-group-item">Email: <a href="mailto: leto2@dune.com">leto2@dune.com</a></li>
+                    <li class="list-group-item">School: University of California San Diego</li>
+                </ul>
             </div>
         
+            <!-- This is an intern card. Information is displayed as provided. -->
+            <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
+                <h2 class='text-center text-white pt-1'>Ghanima Atreides</h2>
+                <h3 class='text-center text-white pb-1'><i class="fas fa-user-graduate pr-2"></i>Intern</h3>
+                <ul class="list-group list-group-flush bg-white">
+                    <li class="list-group-item">ID: 6</li>
+                    <!-- Clicking on the email address will bring up a new email in the default program with a pre-populated "To" field. -->
+                    <li class="list-group-item">Email: <a href="mailto: ghanima@dune.com">ghanima@dune.com</a></li>
+                    <li class="list-group-item">School: University of California San Diego</li>
+                </ul>
             </div>
-        </section>
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    </body>
-    </html>
+        </div>
+    </main>
+    
+    <!-- Linking scripts required for functionality. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

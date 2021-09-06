@@ -1,3 +1,51 @@
+:root {
+    --darkest: #466354;
+    --darker: #5A9677;
+    --mid: #72A38A;
+    --lighter: #9FE2BF;
+    --lightest: #CCFFE5;
+}
+
+.bg-darkest {
+    background-color: var(--darkest);
+}
+
+.bg-darker {
+    background-color: var(--darker);
+}
+
+.bg-mid {
+    background-color: var(--mid);
+}
+
+.bg-lighter {
+    background-color: var(--lighter);
+}
+
+.bg-lightest {
+    background-color: var(--lightest);
+}
+
+.text-darkest {
+    color: var(--darkest);
+}
+
+.text-darker {
+    color: var(--darker);
+}
+
+.text-mid {
+    color: var(--mid);
+}
+
+.text-lighter {
+    color: var(--lighter);
+}
+
+.text-lightest {
+    color: var(--lightest);
+}
+
 header {
-    background-image: linear-gradient(to right, #007bff, navy);
+    background-image: linear-gradient(to right, var(--darker), var(--darkest));
 }
