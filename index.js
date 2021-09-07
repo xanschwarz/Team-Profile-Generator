@@ -1,30 +1,14 @@
-/* ---------------------------------------------------         Developer notes         ------------------------------------------------------
-
-
-Gitignore node modules, anything else not necessary to install app. Remember to start walkthrough video with pre-install setup.
-
-Take user input to accomplish the following:
-
-1. Prompt for team members and their information to generate an HTML file that displays a nicely formatted team roster based on user input.
-2. Clicking on an email address in the HTML causes default email program to open and populates the "TO:" field of the email with the address.
-3. Clicking on the GitHub username opens that GitHub profile in a new tab.
-4. Starting the application (node index.js) begins prompts to enter the team manager’s name, employee ID, email address, and office number.
-5. Upon entering the team manager’s name, employee ID, email address, and office number, app presents a menu with the option to add an engineer
-or an intern or to finish building the team.
-6. Selecting the engineer option prompts to enter the engineer’s name, ID, email, and GitHub username, then takes user back to the menu.
-7. Selecting the intern option prompts to enter the intern’s name, ID, email, and school, then takes user back to the menu.
-8. Selecting "Finish building my team" exits the application, and the HTML is generated.
-
------------------------------------------------------------------------------------------------------------------------------------------- */
-
+// Require the necessary packages, modules, and subclasses. Define the team empty array to store user input.
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateTeamHTML = require("./src/generateHTML.js")
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const team = [];
-const generateTeamHTML = require("./src/generateHTML.js")
 
+// Function to be called after every team member input is provided. Asks if user would like to enter another team member's
+// details or if the entire team has been added.
 const additionalEmployeeAsk = () => {
     return inquirer
     .prompt ([
@@ -41,13 +25,12 @@ const additionalEmployeeAsk = () => {
             engineerInfo();
         }
         else if (response.addQuery == 'Add an intern') {
-            // Call function to add an intern
+            // Call function to add an intern.
             internInfo();
         }
         else {
             console.log('Team complete! Generating team page.')
-            // Call function to write the team page HTML
-            // console.log(generateTeamHTML(team))
+            // Call function to write the team page HTML.
             fs.writeFile('./dist/index.html', generateTeamHTML(team), (err) => {
                 if (err) {
                     console.log(err);
@@ -60,6 +43,7 @@ const additionalEmployeeAsk = () => {
     })
 };
 
+// Function to prompt the user for the team manager's details.
 const managerInfo = () => {
     return inquirer
     .prompt ([
@@ -78,18 +62,22 @@ const managerInfo = () => {
             name: 'email',
             message: "Please enter the team manager's email address."
         },
+        // Specific to the manager subclass is their office number.
         {
             type: 'input',
             name: 'officeNumber',
             message: "Please enter the team manager's office number."
         }
     ])
+    // Once the manager's details have been given, push those details to the empty team array and ask the user if they
+    // would like to add more employees or if the team is complete.
     .then((data) => {
         team.push(data);
         additionalEmployeeAsk();
     })
 };
 
+// Function to prompt the user for an engineer team member's details.
 const engineerInfo = () => {
     return inquirer
     .prompt ([
@@ -108,21 +96,24 @@ const engineerInfo = () => {
             name: 'email',
             message: "Please enter the engineer's email address."
         },
+        // Specific to the engineer subclass is their github username.
         {
             type: 'input',
             name: 'github',
             message: "Please enter the engineer's github username."
         }
     ])
+    // Once the engineer's details have been given, push those details to the empty team array and ask the user if they
+    // would like to add more employees or if the team is complete.
     .then((data) => {
         team.push(data);
         additionalEmployeeAsk();
     })
 };
 
+// Function to prompt the user for an intern team member's details.
 const internInfo = () => {
     return inquirer
-    // name, id, email, school
     .prompt ([
         {
             type: 'input',
@@ -139,18 +130,22 @@ const internInfo = () => {
             name: 'email',
             message: "Please enter the intern's email address."
         },
+        // Specific to the intern subclass is the school they are attending.
         {
             type: 'input',
             name: 'school',
             message: "Please enter the intern's school name."
         }
     ])
+    // Once the intern's details have been given, push those details to the empty team array and ask the user if they
+    // would like to add more employees or if the team is complete.
     .then((data) => {
         team.push(data);
         additionalEmployeeAsk();
     })
 };
 
+// Upon start of index.js, run this initial function which calls the function to ask the user for the team manager's details.
 function init() {
     managerInfo();
 }

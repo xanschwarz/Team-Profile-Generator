@@ -1,49 +1,32 @@
-const Engineer = require('../lib/engineer');
+// Require the engineer subclass for testing
+const Engineer = require("../lib/engineer");
 
-const testEngineer = new Engineer('Paul', '3', 'paul@email.com');
-const testName = 'Paul';
-const testID = '3';
-const testEmail = 'paul@email.com';
-const testRole = 'Engineer';
+// Instantiate a new engineer object and appropriate test variables.
+const testEngineer = new Engineer(
+  "Paul",
+  "3",
+  "paul@email.com",
+  "PaulMuadDib"
+);
+const testGitHub = "PaulMuadDib";
+const testRole = "Engineer";
 
-describe('Engineer', () => {
-    it('Generates a new Engineer object, based off the appropriate model', () => {
-        expect(typeof(testEngineer)).toBe('object');
-    })
+// Suite of tests for the engineer subclass. Checks engineer-specific GitHub username property input value against test variable. Checks that the get
+// property methods return the corresponding property values.
+describe("Engineer", () => {
+  it("Sets GitHub username value to provided input", () => {
+    expect(testEngineer.github).toBe(testGitHub);
+  });
 
-    it('Sets name value to provided input', () => {
-        expect(testEngineer.name).toBe(testName);
-    })
+  describe("getGitHub", () => {
+    it("Returns the value within the GitHub username property", () => {
+      expect(testEngineer.getGitHub()).toBe(testGitHub);
+    });
+  });
 
-    it('Sets ID value to provided input', () => {
-        expect(testEngineer.id).toBe(testID);
-    })
-
-    it('Sets email value to provided input', () => {
-        expect(testEngineer.email).toBe(testEmail);
-    })
-
-    describe('getName', () => {
-        it('Returns the value within the objects name property', () => {
-            expect(testEngineer.getName()).toBe(testName);
-        })
-    })
-    
-    describe('getId', () => {
-        it('Returns the value within the objects ID property', () => {
-            expect(testEngineer.getId()).toBe(testID);
-        })
-    })
-
-    describe('getEmail', () => {
-        it('Returns the value within the objects email property', () => {
-            expect(testEngineer.getEmail()).toBe(testEmail);
-        })
-    })
-
-    describe('getRole', () => {
-        it('Returns the value within the objects role property', () => {
-            expect(testEngineer.getRole()).toBe(testRole);
-        })
-    })
-})
+  describe("getRole", () => {
+    it("Returns the value within the objects role property", () => {
+      expect(testEngineer.getRole()).toBe(testRole);
+    });
+  });
+});

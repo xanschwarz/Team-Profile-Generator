@@ -1,18 +1,15 @@
-// Empty string. generateHTML calls function for beginning of html, adds to empty string.
-// Then calls functions depending on members in team array to add further HTML. When complete calls function to end HTML.
-// function generateHTML(team) {
-//     let html = `Initial html`
-//     return html;
-//   }
-
+// Empty string literal that the generated html page will be added to upon completion of user input.
 let teamHTML = ``;
 
+// generateTeamHTML function adds the manager card to the HTML string variable, followed by cards for engineers or interns as appropriate according to
+// and in the order of the team members input provided by the user.
 function generateTeamHTML(teamInput) {
-    for (i = 0; i < teamInput.length; i++) {
-        // For simplicity and consistency the Manager card is included in the for loop as opposed to having it before the for loop and starting at i = 1.
-        if (i === 0) {
-            // Manager card
-            teamHTML += `
+  // Loops through the user input by team members.
+  for (i = 0; i < teamInput.length; i++) {
+    // For simplicity and consistency the Manager card is included in the for loop as opposed to having it before the for loop and starting at i = 1.
+    if (i === 0) {
+      // Adds the manager card to the HTML string. Includes the user input manager details in the appropriate places.
+      teamHTML += `
             <!-- This is the manager card. Information is displayed as provided. -->
             <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
                 <h2 class='text-center text-white pt-1'>${teamInput[i].name}</h2>
@@ -24,11 +21,10 @@ function generateTeamHTML(teamInput) {
                     <li class="list-group-item">Office Number: ${teamInput[i].officeNumber}</li>
                 </ul>
             </div>
-        `
-        }
-        else if (teamInput[i].github) {
-            // Engineer card
-            teamHTML += `
+        `;
+    } else if (teamInput[i].github) {
+      // Adds an engineer card to the HTML string. Includes the user input engineer details in the appropriate places.
+      teamHTML += `
             <!-- This is an engineer card. Information is displayed as provided. -->
             <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
                 <h2 class='text-center text-white pt-1'>${teamInput[i].name}</h2>
@@ -41,11 +37,10 @@ function generateTeamHTML(teamInput) {
                     <li class="list-group-item">Github: <a href="https://github.com/${teamInput[i].github}/" target="_blank">${teamInput[i].github}</a></li>
                 </ul>
             </div>
-        `
-        }
-        else if (teamInput[i].school) {
-            // Intern card
-            teamHTML += `
+        `;
+    } else if (teamInput[i].school) {
+      // Adds an intern card to the HTML string. Includes the user input intern details in the appropriate places.
+      teamHTML += `
             <!-- This is an intern card. Information is displayed as provided. -->
             <div class="card m-2 bg-darkest shadow" style="min-width: 18rem;">
                 <h2 class='text-center text-white pt-1'>${teamInput[i].name}</h2>
@@ -57,14 +52,18 @@ function generateTeamHTML(teamInput) {
                     <li class="list-group-item">School: ${teamInput[i].school}</li>
                 </ul>
             </div>
-        `
-        }
+        `;
     }
-    return generateOuterHTML(teamHTML);
+  }
+  // Returns the full page HTML by calling the generateOuterHTML function with the teamHTML string as argument. This combines the outer HTML with the
+  // team cards to produce the full page.
+  return generateOuterHTML(teamHTML);
 }
 
+// generateOuterHTML produces the HTML for the whole page by inserting the team cards section of the HTML produced by generateTeamHTML into the main section
+// of the page where the cards need to be.
 function generateOuterHTML(teamHTML) {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -99,4 +98,5 @@ function generateOuterHTML(teamHTML) {
 </html>`;
 }
 
+// Exports the generateTeamHTML. Note that this returns the full page HTML, as stated by that functions return.
 module.exports = generateTeamHTML;

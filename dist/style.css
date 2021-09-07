@@ -1,3 +1,4 @@
+/* Set root color variables. */
 :root {
     --darkest: #466354;
     --darker: #5A9677;
@@ -6,6 +7,7 @@
     --lightest: #CCFFE5;
 }
 
+/* Set background and text color classes, keeping Bootstrap's format for consistency. */
 .bg-darkest {
     background-color: var(--darkest);
 }
@@ -46,6 +48,7 @@
     color: var(--lightest);
 }
 
+/* Set header background gradient. */
 header {
     background-image: linear-gradient(to right, var(--darker), var(--darkest));
 }

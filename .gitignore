@@ -2,4 +2,4 @@ node_modules
 .DS_Store
 package-lock.json
 # mockup is a developer file for testing structure and style on the page to be generated.
-./dist/mockup.html
+/dist/mockup.html
