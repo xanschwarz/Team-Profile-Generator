@@ -32,6 +32,8 @@ After installation is complete, in the integrated terminal simply enter "node in
 
 [Video of installation, running tests, and usage.](https://drive.google.com/file/d/1lpHV9e9euWoQuIclNpLX2nOpefGrOOgJ/view)
 
+You can see the sample generated team profile page live [here](https://xanschwarz.github.io/Team-Profile-Generator/).
+
 ## License
 
 [![badge](https://img.shields.io/badge/license-MIT-brightgreen)](https://choosealicense.com/licenses/mit/)
